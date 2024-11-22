@@ -1,0 +1,39 @@
+\hypertarget{1_8h_source}{}\doxysection{1.h}
+\mbox{\hyperlink{1_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 }
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include <locale>}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include <codecvt>}}
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{classmodAlphaCipher}{modAlphaCipher}}}
+\DoxyCodeLine{16 \{}
+\DoxyCodeLine{17 \textcolor{keyword}{private}:}
+\DoxyCodeLine{18     std::wstring\_convert<std::codecvt\_utf8<wchar\_t>, \textcolor{keywordtype}{wchar\_t}> codec;}
+\DoxyCodeLine{20     std::wstring numAlpha =L\textcolor{stringliteral}{"{}АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"{}}; \textcolor{comment}{//алфавит по порядку}}
+\DoxyCodeLine{22 \textcolor{comment}{}    std::map <wchar\_t,int> alphaNum; \textcolor{comment}{//ассоциативный массив "{}номер по символу"{}}}
+\DoxyCodeLine{24 \textcolor{comment}{}    std::vector <int> key; \textcolor{comment}{//ключ}}
+\DoxyCodeLine{36 \textcolor{comment}{}    std::vector<int> convert(\textcolor{keyword}{const} std::wstring\& s); \textcolor{comment}{//преобразование строка-\/вектор}}
+\DoxyCodeLine{48 \textcolor{comment}{}    std::wstring convert(\textcolor{keyword}{const} std::vector<int>\& v); \textcolor{comment}{//преобразование вектор-\/строка}}
+\DoxyCodeLine{49     std::wstring getValidKey(\textcolor{keyword}{const} std::wstring \& s);}
+\DoxyCodeLine{50     std::wstring getValidOpenText(\textcolor{keyword}{const} std::wstring \& s);}
+\DoxyCodeLine{51     std::wstring getValidCipherText(\textcolor{keyword}{const} std::wstring \& s);}
+\DoxyCodeLine{52 \textcolor{keyword}{public}:}
+\DoxyCodeLine{54     \mbox{\hyperlink{classmodAlphaCipher_a4f0a86c20f5d836f66cb1e640d875e6b}{modAlphaCipher}}()=\textcolor{keyword}{delete}; \textcolor{comment}{//запретим конструктор без параметров}}
+\DoxyCodeLine{56 \textcolor{comment}{}}
+\DoxyCodeLine{59     \mbox{\hyperlink{classmodAlphaCipher_a314fca132f4e74faca280b7c1fad7cb5}{modAlphaCipher}}(\textcolor{keyword}{const} std::wstring\& skey); \textcolor{comment}{//конструктор для установки ключа}}
+\DoxyCodeLine{61 \textcolor{comment}{}    std::wstring \mbox{\hyperlink{classmodAlphaCipher_a5edc499881373a275a3cd14f0cab6c19}{encrypt}}(\textcolor{keyword}{const} std::wstring\& open\_text); \textcolor{comment}{//зашифрование}}
+\DoxyCodeLine{63 \textcolor{comment}{}    std::wstring \mbox{\hyperlink{classmodAlphaCipher_a941eab79d9ec1a8de4e1f9cf2a80ff35}{decrypt}}(\textcolor{keyword}{const} std::wstring\& cipher\_text);\textcolor{comment}{//расшифрование}}
+\DoxyCodeLine{64 \};}
+\DoxyCodeLine{66 \textcolor{keyword}{class }\mbox{\hyperlink{classcipher__error}{cipher\_error}}: \textcolor{keyword}{public} std::invalid\_argument}
+\DoxyCodeLine{67 \{}
+\DoxyCodeLine{68 \textcolor{keyword}{public}:}
+\DoxyCodeLine{69     \textcolor{keyword}{explicit} \mbox{\hyperlink{classcipher__error}{cipher\_error}} (\textcolor{keyword}{const} std::string\& what\_arg):}
+\DoxyCodeLine{70         std::invalid\_argument(what\_arg) \{\}}
+\DoxyCodeLine{71     \textcolor{keyword}{explicit} \mbox{\hyperlink{classcipher__error}{cipher\_error}} (\textcolor{keyword}{const} \textcolor{keywordtype}{char}* what\_arg):}
+\DoxyCodeLine{72         std::invalid\_argument(what\_arg) \{\}}
+\DoxyCodeLine{73 \};}
+
+\end{DoxyCode}
